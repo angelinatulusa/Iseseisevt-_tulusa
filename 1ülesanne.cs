@@ -8,19 +8,35 @@ namespace Iseseisevtöö_tulusa
 {
     class _1ülesanne
     {
-        static void Main()
+        static void Main(string[] args)
         {
 
             //Задано пять произвольных целых чисел (элементы массива). Определить, является ли их расположение в массиве упорядоченным (т.е. по возрастанию или по убыванию) или неупорядоченным.
-            string a = "";
-            int[] cisla = new int[5] { 18, 13, 32, 76, 54};
-            a = cisla.Sort();
-            
-            
-        }
-        private static void Sort(int[] cisla)
-        {
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            /*List<int> cisla = new List<int>(5);
+            cisla.Add(rnd.Next(0, 20));*/
+            int[] cisla = new int[5];
+            int[] cisla2 = new int[5]; 
+            cisla.CopyTo(cisla2);
+            int p = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                if (cisla2[i]>cisla2[i-1])
+                {
+                    p = cisla2[i];
+                    cisla2[i] = cisla2[i - 1];
+                    cisla2[i - 1] = p;
+                }
+            }
+            if (cisla==cisla2)
+            {
+                Console.Write("Elementi uporadoceni");
+            }
+            else
+            {
+                Console.Write("Elementi ne uporadoceni");
+            }
+
         }
 
     }
